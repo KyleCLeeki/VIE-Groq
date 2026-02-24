@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Sector Analyzer - Groq & Hugging Face</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 Country Sector Analyzer</h1>
+            <p class="subtitle">Discover the highest performing sector of any country</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <form id="countryForm">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="countryInput" 
+                            placeholder="Enter a country name (e.g., Japan, Brazil, Germany)" 
+                            required
+                            autocomplete="off"
+                        >
+                        <button type="submit" id="analyzeBtn">Analyze</button>
+                    </div>
+                </form>
+                <p class="helper-text">Enter any country to discover its strongest economic sector and see AI-generated imagery</p>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="hidden">
+                <div class="loader"></div>
+                <p>Analyzing country and generating image...</p>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="hidden">
+                <div class="results-container">
+                    <div class="result-text">
+                        <h2 id="resultTitle">Results</h2>
+                        <div class="sector-info">
+                            <p class="label">Highest Performing Sector:</p>
+                            <p id="sectorName" class="sector-name"></p>
+                        </div>
+                    </div>
+
+                    <div class="result-image">
+                        <img id="generatedImage" alt="Generated sector image" />
+                        <p class="image-credit">AI-generated image via Hugging Face Diffusion Model</p>
+                    </div>
+                </div>
+
+                <button id="resetBtn" class="reset-btn">Analyze Another Country</button>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorSection" class="hidden">
+                <div class="error-message">
+                    <p id="errorText"></p>
+                </div>
+                <button id="errorResetBtn" class="reset-btn">Try Again</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by <strong>Groq API</strong> (LLM) & <strong>Hugging Face</strong> (Image Generation)</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
